@@ -87,6 +87,7 @@
      <Compile Include="Assets\ゲームプレイ\Util\UT_r.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\TL_TimeLineMng.cs" />
      <Compile Include="Assets\レベル建造部品\ギミック\Assets\針\GP_DeathBox.cs" />
+     <Compile Include="Assets\NewBehaviourScript.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\LevelSelect\Strip.shader" />
