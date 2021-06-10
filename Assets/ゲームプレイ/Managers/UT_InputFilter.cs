@@ -8,39 +8,17 @@ public class UT_InputFilter : MonoBehaviour
 {
 
     #region  Var
-    static UT_Inputmanager im;
 
     private static bool Square;
     private static bool Triangle;
     private static bool Circle;
     private static bool Cross;
-    private static Vector2 Buttons;
     private static Vector2 Axis;
     private static float Rtrig;
     #endregion
     void Awake()
     {
-        im = new UT_Inputmanager();
-        im.Player.Move.performed += ctx => Axis = ctx.ReadValue<Vector2>();
-        im.Player.Move.canceled += ctx => Axis = Vector2.zero;
 
-        im.Player.Rtrigger.performed += ctx => Rtrig = ctx.ReadValue<float>();
-
-        im.Player.Rtrigger.canceled += ctx => Rtrig = 0;
-        /*
-                im.Player.Square.performed += ctx => Square = true;
-                im.Player.Square.canceled += ctx => Square = false;
-
-                im.Player.Tri.performed += ctx => Triangle = true;
-                im.Player.Tri.canceled += ctx => Triangle = false;
-
-                im.Player.Circle.performed += ctx => Circle = true;
-                im.Player.Circle.canceled += ctx => Circle = false;
-
-                im.Player.X.performed += ctx => Cross = true;
-                im.Player.X.canceled += ctx => Cross = false;*/
-        im.Player.Cross.performed += ctx => tst();
-     //   im.Player.Cross.canceled += ctx => Cross = false;
 
     }
     void Update()
@@ -48,7 +26,7 @@ public class UT_InputFilter : MonoBehaviour
     }
     void OnEnable()
     {
-        im.Player.Enable();
+ 
 
     }
     public static void tst()
@@ -143,7 +121,7 @@ public class UT_InputFilter : MonoBehaviour
     }
     public static bool GetX()
     {
-        return Buttons.y < 0;// im.Player.X.ReadValue<bool>();
+        return false;//Buttons.y < 0;// im.Player.X.ReadValue<bool>();
     }
 
     public static float GetTrig()
@@ -151,5 +129,22 @@ public class UT_InputFilter : MonoBehaviour
         return Rtrig;
     }
 
+    public static void SetAxis(InputAction.CallbackContext v)
+    {
+        Axis = v.ReadValue<Vector2>();
+    }
+    public static void SetTrig(InputAction.CallbackContext v)
+    {
+        Rtrig = v.ReadValue<float>();
+    }
+
+    public static void SetCross(InputAction.CallbackContext v)
+    {
+        Cross=v.ReadValueAsButton();
+    }
+    public static void SetSquare(InputAction.CallbackContext v)
+    {
+        Square=v.ReadValue<bool>();
+    }  
 
 }
