@@ -40,7 +40,7 @@ public class PC_Control : MonoBehaviour
         Iactive=new bool[12];
      //   TargetTL=FindObjectOfType<PC_Inst_Timeline>();
         Ilist=new List<Input_st>();
-        TargetTL.GetComponent<PC_Inst_Timeline>().EventList.Clear();
+     //   TargetTL.GetComponent<PC_Inst_Timeline>().EventList.Clear();
     }
 
     void Update()
@@ -84,7 +84,7 @@ public class PC_Control : MonoBehaviour
         {
             Ilist.Add(Input_st.Ar);
             Iactive[(int)Input_st.A/2]=false;
-
+   
 
         }
 
@@ -172,13 +172,13 @@ public class PC_Control : MonoBehaviour
     
     Ilist.Clear();
     }
-
+/*
     if(Input.GetKeyDown(KeyCode.T))
     {
         Ilist.Clear();
         TargetTL.EventList.Clear();
     }
-
+*/
     }
 
 

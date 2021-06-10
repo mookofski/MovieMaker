@@ -29,8 +29,10 @@ public class MG_StateMng : MonoBehaviour
 
 
     // Update is called once per frame
+     /*
     void Update()
     {
+       
         if(Input.GetKey(KeyCode.U))
         {
             RaiseMenu();
@@ -40,7 +42,7 @@ public class MG_StateMng : MonoBehaviour
             LowerMenu();
         }
     
-    }
+    }*/
 
     void RaiseMenu()
     {

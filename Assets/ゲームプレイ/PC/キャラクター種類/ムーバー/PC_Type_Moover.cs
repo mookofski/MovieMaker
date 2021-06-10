@@ -67,13 +67,13 @@ public class PC_Type_Moover : PC_Base
         }
 
 
-
+/*
 
         if (Input.GetKey(KeyCode.R))
         {
             rb.velocity = new Vector2();
 
-        }
+        }*/
 
         //        Use();
     }
@@ -132,14 +132,14 @@ public class PC_Type_Moover : PC_Base
         }
 
 
-
+/*
         if (Input.GetKey(KeyCode.R))
         {
             TL_TimeLineMng.ResetTimer();
 
             ResetInput();
         }
-
+*/
     }
 
 

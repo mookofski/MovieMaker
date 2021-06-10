@@ -116,7 +116,7 @@ public class Clapper : MonoBehaviour
         TakeCount.text="Take "+(stateManagerref.Takes+1).ToString();
         SceneCount.text="Scene "+stateManagerref.Actors+"/"+(stateManagerref.CurrentActor+1).ToString();
 
-        if (Input.GetKey(KeyCode.P))    
+        if (UT_InputFilter.GetTrig()>0)    
         {
             rot = smin(rot + rotrate, rotmax, smooth);
             //   Debug.Log(rot);
@@ -142,11 +142,12 @@ public class Clapper : MonoBehaviour
 
         //   T.localScale+=lerp(T.localScale,ReadySize,Speed);
         //   T.position+=lerp(T.position,ReadyPos,Speed);
+    /*
         if (Input.GetKeyDown(KeyCode.K))
         {
 
             MG_StateManager.state = MG_StateManager.States.Gameplay;
-        }
+        }*/
         Top_T.rotation = Quaternion.Euler(0, 0, -rot);
 
     }

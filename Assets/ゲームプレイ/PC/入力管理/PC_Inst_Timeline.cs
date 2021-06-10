@@ -49,9 +49,10 @@ public class PC_Inst_Timeline : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+  /*   void Update()
     {
         //デバッグ用
+       
         if (Input.GetKeyDown(KeyCode.E))
         {
             string st = "TYPES : COUNT : " + EventList.Count + "\n";
@@ -67,7 +68,7 @@ public class PC_Inst_Timeline : MonoBehaviour
         }
 
     }
-
+*/
 
 
 

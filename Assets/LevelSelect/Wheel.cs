@@ -18,18 +18,18 @@ public class Wheel : MonoBehaviour
     public bool ended;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (UT_InputFilter.GetX())
         {
             ac.SetBool("State", true);
 
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (UT_InputFilter.GetD())
         {
 
             selection = Math.Min(selection + 1, levelcount);
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (UT_InputFilter.GetU())
         {
 
             selection = Math.Max(selection - 1, 0);

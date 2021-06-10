@@ -47,13 +47,14 @@ public    float EffectMult;
     void Update()
     {
         if(isactive){
+            /*
         if (Input.GetKeyDown(KeyCode.Q))
         {
             foreach (var b in CharList)
             {
                 Debug.Log(Cam.WorldToViewportPoint(b.transform.position).ToString("F4"));
             }
-        }
+        }*/
 
 
 

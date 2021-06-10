@@ -73,11 +73,11 @@ public class PC_Base : MonoBehaviour
 
 
         }
-
+/*
         if (Input.GetKeyDown(KeyCode.R))
         {
             ResetInput();
-        }
+        }*/
 
 
     }

@@ -69,7 +69,7 @@ public class TL_TimeLineMng : MonoBehaviour
             }
         }
         tst += Time.deltaTime;
-
+/*
         if (Input.GetKey(KeyCode.Z))
         {
             mult = 0.5f;
@@ -79,7 +79,7 @@ public class TL_TimeLineMng : MonoBehaviour
         {
             mult = 1;
         }
-
+*/
     }
 
     public static void run(bool state)

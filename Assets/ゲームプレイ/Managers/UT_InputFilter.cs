@@ -1,75 +1,126 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 /// <summary>
 /// インプット管理
 /// </summary>
 public class UT_InputFilter : MonoBehaviour
 {
-    public PlayerInput pi;
 
-    public static float Axis;
+    #region  Var
+    static UT_Inputmanager im;
+
+    private static bool Square;
+    private static bool Triangle;
+    private static bool Circle;
+    private static bool Cross;
+    private static Vector2 Buttons;
+    private static Vector2 Axis;
+    private static float Rtrig;
+    #endregion
+    void Awake()
+    {
+        im = new UT_Inputmanager();
+        im.Player.Move.performed += ctx => Axis = ctx.ReadValue<Vector2>();
+        im.Player.Move.canceled += ctx => Axis = Vector2.zero;
+
+        im.Player.Rtrigger.performed += ctx => Rtrig = ctx.ReadValue<float>();
+
+        im.Player.Rtrigger.canceled += ctx => Rtrig = 0;
+        /*
+                im.Player.Square.performed += ctx => Square = true;
+                im.Player.Square.canceled += ctx => Square = false;
+
+                im.Player.Tri.performed += ctx => Triangle = true;
+                im.Player.Tri.canceled += ctx => Triangle = false;
+
+                im.Player.Circle.performed += ctx => Circle = true;
+                im.Player.Circle.canceled += ctx => Circle = false;
+
+                im.Player.X.performed += ctx => Cross = true;
+                im.Player.X.canceled += ctx => Cross = false;*/
+        im.Player.Cross.performed += ctx => tst();
+     //   im.Player.Cross.canceled += ctx => Cross = false;
+
+    }
+    void Update()
+    {
+    }
+    void OnEnable()
+    {
+        im.Player.Enable();
+
+    }
+    public static void tst()
+    {
+        Debug.Log("test");
+    }
 
     public static float GetHor()
-    {    
-        
-      return Axis.x;
+    {
+
+        return Axis.x;
     }
     public static float GetVer()
-    {    
-      return Input.GetAxis("Vertical");
+    {
+        return Axis.y;
     }
-    
-        public static bool GetR()
-    {    
+
+    public static bool GetR()
+    {
+
+        return Axis.x > 0;
+        /*
+                if (Input.GetAxis("Horizontal") > 0)
+                {
+                    return true;
+                }
+                else
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+                {
+                    return true;
+                }
 
 
-        if(Input.GetAxis("Horizontal")>0)
-        {
-            return true;
-        }else
-        if(Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.D))
-        {
-            return true;
-        }
-
-
-    return false;
+                return false;
+        */
     }
     public static bool GetL()
-    {    
-    if(Input.GetAxis("Horizontal")<0)
+    {
+        return Axis.x < 0;
+        /*
+        if (Input.GetAxis("Horizontal") < 0)
         {
             return true;
         }
-else
-        if(Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.A))
+        else
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             return true;
         }
-    return false;
+        return false;*/
     }
-       public static bool GetU()
-    {    
-      
-        if(Input.GetAxis("Vertical")>0)
-        {
-            return true;
-        }
+    public static bool GetU()
+    {
+        return Axis.y > 0;
+        /*
+                if (Input.GetAxis("Vertical") > 0)
+                {
+                    return true;
+                }
 
-    return false;
+                return false;*/
     }
     public static bool GetD()
-    {    
-      
-        if(Input.GetAxis("Vertical")<0)
-        {
-            return true;
-        }
+    {
+        return Axis.y < 0;
+        /*
+                if (Input.GetAxis("Vertical") < 0)
+                {
+                    return true;
+                }
 
-    return false;
+                return false;*/
     }
 
 
@@ -78,36 +129,26 @@ else
 
     public static bool GetCir()
     {
-        return Input.GetButtonDown("Circle");
+        return Circle;
+
     }
     public static bool GetTriangle()
     {
-        return Input.GetButtonDown("Triangle");
+        return Triangle;
+
     }
     public static bool GetSquare()
     {
-        return Input.GetButtonDown("Square");
+        return Square;
     }
-        public static bool GetX()
+    public static bool GetX()
     {
-            if(Input.GetButtonDown("X"))
-            {
-                return true;
-            }else
-            if(Input.GetKey(KeyCode.Space))
-            {
-                return true;
-            }
-
-        return false;
+        return Buttons.y < 0;// im.Player.X.ReadValue<bool>();
     }
-    public static void AxisInput(InputAction.CallbackContext v)
+
+    public static float GetTrig()
     {
-        Vector2 buf=v.ReadValue<Vector2>();
-
-        
-
-
+        return Rtrig;
     }
 
 

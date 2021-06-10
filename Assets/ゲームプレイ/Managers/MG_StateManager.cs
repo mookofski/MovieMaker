@@ -36,6 +36,7 @@ public class MG_StateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Q))
         {
             AdvanceScene();
@@ -43,7 +44,7 @@ public class MG_StateManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             RestartScene();
-        }
+        }*/
     }
 
 private bool fading=false;

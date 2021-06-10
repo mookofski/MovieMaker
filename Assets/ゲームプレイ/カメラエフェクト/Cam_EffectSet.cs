@@ -82,11 +82,11 @@ public class Cam_EffectSet : MonoBehaviour
             T.position += (asv3(Targetpos) - T.position) * speed;
 
         }
-
+/*
         if (Input.GetKeyDown(KeyCode.H))
         {
             StartAtnimation();
-        }
+        }*/
     }
 
 
