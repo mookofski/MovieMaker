@@ -52,6 +52,8 @@ public class Clapper_Editor : Editor
     void DisplayComponents()
     {
         EditorGUILayout.PropertyField(serializedObject.FindProperty("ReplayParent"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("aa"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("ReplayText"));
  
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Top"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Bottom"));

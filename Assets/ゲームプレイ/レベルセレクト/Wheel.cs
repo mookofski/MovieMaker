@@ -18,12 +18,13 @@ public class Wheel : MonoBehaviour
     public int levelcount = 3;
 
     public bool ended;
+    public GameObject logo;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ac.SetBool("State", true);
-
+            StartCoroutine("movelogo");
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -52,6 +53,7 @@ public class Wheel : MonoBehaviour
 
         while (true)
         {
+
             velo += (selection * rotationunit) - (rot) * rotationrate;
 
             velo *= 0.7f;
@@ -63,6 +65,15 @@ public class Wheel : MonoBehaviour
 
             T.rotation = Quaternion.Euler(0, 0, rot);
             yield return null;
+        }
+    }
+
+    IEnumerator movelogo()
+    {
+        while(true){
+        logo.transform.position+=Vector3.up*0.5f;
+        yield return false;
+        
         }
     }
 

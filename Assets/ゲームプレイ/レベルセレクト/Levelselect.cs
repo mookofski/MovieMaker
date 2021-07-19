@@ -20,7 +20,7 @@ public class Levelselect : MonoBehaviour
         StripLength = 0;
         Strip.SetFloat("_slider", StripLength);
         LImage.SetFloat("_Opacity", 0);
-
+        
         slideend = false;
     }
     bool slideend = false;

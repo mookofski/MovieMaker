@@ -11,6 +11,7 @@ public class Clapper : MonoBehaviour
     public GameObject Bottom;
     public Transform ReadyParent;
     public Transform GPParent;
+   public AudioSource aa;
 
     public Transform ReplayParent;
 
@@ -137,7 +138,8 @@ public class Clapper : MonoBehaviour
         TakeCount.text = "テイク " + (stateManagerref.Takes + 1).ToString();
         SceneCount.text = "シーン " + stateManagerref.Actors + "/" + (stateManagerref.CurrentActor + 1).ToString();
 
-        if (Input.GetKey(KeyCode.P))
+
+        if (Input.GetKey(KeyCode.Space))
         {
             rot = smin(rot + rotrate, rotmax, smooth);
             //   Debug.Log(rot);
@@ -154,6 +156,7 @@ public class Clapper : MonoBehaviour
         }
         if (rot < 0.05f && set && MG_StateManager.state == MG_StateManager.States.Ready)
         {
+            aa.Play();
             //  Debug.Log("cir");
             set = false;
             FindObjectOfType<CAM_Gameplay>().Ready_to_GP();
@@ -188,6 +191,7 @@ public class Clapper : MonoBehaviour
     public TextMesh TimerText;
     public Material SliderMat;
     private Material Slidermatinst;
+    public TextMesh ReplayText;
     public float SliderRate = 1.0f;
     #endregion
 
@@ -228,7 +232,7 @@ public class Clapper : MonoBehaviour
 
     void Replay()
     {
-
+        ReplayText.text=((int)TL_TimeLineMng.ctime).ToString();
 
     }
 
